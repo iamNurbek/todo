@@ -22,22 +22,22 @@ app.use('/', router);
 
 // Adding todo to the database
 router.post('/', controller.createTodo, (req, res) => {
-  res.status(200).json(res.locals.newTodo);
+  res.status(200).json(res.locals.newTask);
 });
 
 // Getting the todo from database
 router.get('/get', controller.createTodo, (req, res) => {
-  res.status(200).json(res.locals.newTodo);
+  res.status(200).json(res.locals.getTask);
 });
 
 // Updating the todo
 router.patch('/update', controller.createTodo, (req, res) => {
-  res.status(200).json(res.locals.newTodo);
+  res.status(200).json(res.locals.updateTask);
 });
 
 // Delete the todo from the database
 router.delete('/delete/:id', controller.createTodo, (req, res) => {
-  res.status(200).json(res.locals.newTodo);
+  res.status(200).json(res.locals.deleteTask);
 });
 
 // Unknown Route Handling
