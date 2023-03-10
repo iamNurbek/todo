@@ -6,4 +6,4 @@ const taskSchema = new Schema({
   time: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model('todo', taskSchema);
+module.exports = mongoose.model('task', taskSchema);

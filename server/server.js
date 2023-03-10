@@ -1,9 +1,12 @@
+const controller = require('./controller/controller');
+
 const express = require('express'),
   mongoose = require('mongoose'),
   app = express(),
   path = require('path'),
   PORT = 3000,
-  router = express.Router();
+  router = express.Router(),
+  controller = require('./controller/controller.js');
 
 // Mongo URI
 const MONGO_URI =
