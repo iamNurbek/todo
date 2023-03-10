@@ -1,0 +1,32 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server/server.js --open",
+    "build": "NODE_ENV=production webpack",
+    "dev": "concurrently \"cross-env NODE_ENV=development webpack serve --open\" \"cross-env nodemon ./server/server.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamNurbek/todo.git"
+  },
+  "author": "Nurbek Jouraboev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iamNurbek/todo/issues"
+  },
+  "homepage": "https://github.com/iamNurbek/todo#readme",
+  "dependencies": {
+    "babel-loader": "^9.1.2",
+    "eslint": "^8.35.0",
+    "eslint-plugin-react": "^7.32.2",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.21",
+    "prettier": "^2.8.4",
+    "react": "^18.2.0",
+    "webpack": "^5.76.0"
+  }
+}
