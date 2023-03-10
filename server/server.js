@@ -1,8 +1,9 @@
 const express = require('express'),
   mongoose = require('mongoose'),
-  app = express();
-path = require('path');
-(PORT = 3000), (router = express.Router());
+  app = express(),
+  path = require('path'),
+  PORT = 3000,
+  router = express.Router();
 
 // Mongo URI
 const MONGO_URI =
