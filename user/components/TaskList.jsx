@@ -2,7 +2,7 @@ import React, { Component, useEffect, useState } from 'react';
 
 const TaskList = ({ taskName, id }) => {
   function deleteTask(id) {
-    fetch(`/delete/${id}`, {
+    fetch(`/task/delete/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'Application/JSON',

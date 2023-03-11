@@ -1,14 +1,13 @@
 const Task = require('../models/model.js');
 
 module.exports = {
-
-// Create Task Model
+  // Create Task Model
   createTask(req, res, next) {
     Task.create({
-      todo: req.body.todo,
+      task: req.body.task,
     })
       .then((data) => {
-        res.locals.newTask = data;
+        res.locals.createTask = data;
         return next();
       })
       .catch((err) => {
@@ -16,11 +15,9 @@ module.exports = {
       });
   },
 
-// Get Task Model
+  // Get Task Model
   getTask(req, res, next) {
-    Task.find({
-      todo: req.body.todo,
-    })
+    Task.find()
       .then((data) => {
         res.locals.getTask = data;
         return next();
@@ -30,11 +27,16 @@ module.exports = {
       });
   },
 
-// Update Task Model
+  // Update Task Model
   updateTask(req, res, next) {
-    Task.findOneAndUpdate({
-      todo: req.body.todo,
-    })
+    Task.findOneAndUpdate(
+      {
+        task: req.body.task,
+      },
+      {
+        task: req.body.updateTask,
+      }
+    )
       .then((data) => {
         res.locals.updateTask = data;
         return next();
@@ -44,10 +46,10 @@ module.exports = {
       });
   },
 
-// Delete Task Model
+  // Delete Task Model
   deleteTask(req, res, next) {
     Task.findOneAndDelete({
-      todo: req.body.todo,
+      task: req.body.task,
     })
       .then((data) => {
         res.locals.deleteTask = data;

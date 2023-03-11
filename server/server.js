@@ -10,7 +10,8 @@ const express = require('express'),
 
 // Mongo URI
 const MONGO_URI =
-  'mongodb+srv://iamNurbek:Jouraboev30@soloproject.cvh7u.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+  'mongodb+srv://iamNurbek:Jouraboev30@soloproject.cvh7u.mongodb.net/?retryWrites=true&w=majority';
+// mongodb+srv://iamNurbek:Jouraboev30@soloproject.cvh7u.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 
 mongoose.connect(MONGO_URI);
 
@@ -21,25 +22,25 @@ mongoose.connection.once('open', () =>
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use('/', router);
+app.use('/task', router);
 
 // Adding todo to the database
-router.post('/', taskController.createTodo, (req, res) => {
-  res.status(200).json(res.locals.newTask);
+router.post('/', taskController.createTask, (req, res) => {
+  res.status(200).json(res.locals.createTask);
 });
 
 // Getting the todo from database
-router.get('/get', taskController.createTodo, (req, res) => {
+router.get('/get', taskController.getTask, (req, res) => {
   res.status(200).json(res.locals.getTask);
 });
 
 // Updating the todo
-router.patch('/update', taskController.createTodo, (req, res) => {
+router.patch('/update', taskController.updateTask, (req, res) => {
   res.status(200).json(res.locals.updateTask);
 });
 
 // Delete the todo from the database
-router.delete('/delete/:id', taskController.createTodo, (req, res) => {
+router.delete('/delete/:id', taskController.deleteTask, (req, res) => {
   res.status(200).json(res.locals.deleteTask);
 });
 
