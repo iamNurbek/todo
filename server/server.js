@@ -6,7 +6,7 @@ const express = require('express'),
   path = require('path'),
   PORT = 3000,
   router = express.Router(),
-  controller = require('./controller/controller.js');
+  taskController = require('./controller/controller.js');
 
 // Mongo URI
 const MONGO_URI =
@@ -24,22 +24,22 @@ app.use(express.json());
 app.use('/', router);
 
 // Adding todo to the database
-router.post('/', controller.createTodo, (req, res) => {
+router.post('/', taskController.createTodo, (req, res) => {
   res.status(200).json(res.locals.newTask);
 });
 
 // Getting the todo from database
-router.get('/get', controller.createTodo, (req, res) => {
+router.get('/get', taskController.createTodo, (req, res) => {
   res.status(200).json(res.locals.getTask);
 });
 
 // Updating the todo
-router.patch('/update', controller.createTodo, (req, res) => {
+router.patch('/update', taskController.createTodo, (req, res) => {
   res.status(200).json(res.locals.updateTask);
 });
 
 // Delete the todo from the database
-router.delete('/delete/:id', controller.createTodo, (req, res) => {
+router.delete('/delete/:id', taskController.createTodo, (req, res) => {
   res.status(200).json(res.locals.deleteTask);
 });
 
